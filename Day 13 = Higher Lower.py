@@ -5,6 +5,8 @@ import os
 score = 0
 should_continue = True
 result = ''
+
+
 def compare(choice, remain):
     global score
     global should_continue
@@ -19,14 +21,16 @@ def compare(choice, remain):
 
     return result
 
+
 def game():
     print(logo)
-
     A = random.choice(data)
     while should_continue:
 
         print(f"Compare A: {A['name']}, a {A['description']}, from {A['country']}")
         B = random.choice(data)
+        if A == B:
+            B = random.choice(data)
         print(vs)
         print(f"Against B: {B['name']}, a {B['description']}, from {B['country']}")
 
@@ -43,5 +47,6 @@ def game():
             print(result)
         else:
             print(result)
+
 
 game()
